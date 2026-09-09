@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Von Neumann Architecture</title>
+    <style>
+        :root {
+            --apple-ground: #f5f5f7;
+            --apple-white: #ffffff;
+            --apple-text: #1d1d1f;
+            --apple-secondary-text: #86868b;
+            --apple-divider: #d2d2d7;
+            --apple-accent-blue: #0071e3;
+            --apple-glass-bg: rgba(255, 255, 255, 0.8);
+            --apple-glass-backdrop: backdrop-filter: blur(20px);
+            --apple-font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--apple-font-primary);
+            background-color: var(--apple-ground);
+            color: var(--apple-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background-color: var(--apple-white);
+            padding: 1.5rem 0;-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin: 0;
+            color: var(--apple-text);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin: 2rem 0 1rem 0;
+            color: var(--apple-text);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--apple-secondary-text);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .architecture-diagram {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .component {
+            background-color: var(--apple-white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 0 0.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--apple-divider);
+            min-width: 180px;
+        }
+
+        .component-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-text);
+        }
+
+        .component-de {
+            font-size: 0.9rem;
+            color: var(--apple-secondary-text);
+        }
+
+        .arrows {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 1rem;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            color: var(--apple-divider);
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .advantages, .disadvantages {
+            background-color: var(--apple-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--apple-divider);
+        }
+
+        .advantages h3, .disadvantages h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            color: var(--apple-text);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        li {
+            font-size: 0.95rem;
+            color: var(--apple-secondary-text);
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background-color: var(--apple-white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+            color: var(--apple-secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Glass effect for sticky header and footer */
+        header, footer {
+            --webkit-backdrop-filter: var(--apple-glass-backdrop);
+ -filter: var(--apple-glass-backdrop);
+            background-color: var(--apple-glass-bg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .architecture-diagram {
+                flex-direction: column;
+                align-items: center;
+            }
+            .arrows {
+                flex-direction: row;
+                margin: 1rem 0;
+            }
+            .arrow {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Von Neumann Architecture</h1>
+        <p>A fundamental computer architecture design</p>
+    </header>
+
+    <div class="container">
+        <p>
+            The Von Neumann Architecture is a computer architecture design that uses a single storage system for both instructions and data.
+            It was proposed by mathematician and physicist <strong>John von Neumann</strong> in 1945.
+        </p>
+
+        <h2>Key Components</h2>
+        <div class="architecture-diagram">
+            <div class="component">
+                <div class="component-title">Central Processing Unit (CPU)</div>
+                <p class="component-description">Executes instructions and processes data.</p>
+            </div>
+            <div class="arrows">
+                <div class="arrow">↑</div>
+                <div class="arrow">↓</div>
+            </div>
+            <div class="component">
+                <div class="component-title">Memory Unit</div>
+                <p class="component-description">Stores both data and instructions.</p>
+            </div>
+            <div class="arrows">
+                <div class="arrow">→</div>
+            </div>
+            <div class="component">
+                <div class="component-title">Input Unit</div>
+                <p class="component-description">Provides d to the system.</p>
+            </div>
+            <div class="arrows">
+                <div class="arrow">→</div>
+            </div>
+            <div class="component">
+                <div class="component-title">Output Unit</div>
+                <p class="component-description">Displays or outputs processed data.</p>
+            </div>
+        </div>
+
+        <h2>How It Works</h2>
+        <ul>
+            <li><strong>Fetch:</strong> The CPU fetches the instruction from memory.</li>
+            <li><strong>Decode:</strong> The CPU decodes the instruction.</li>
+            <li><strong>Execute:</strong> The CPU executes the instruction.</li>
+            <li><strong>Store:</strong> The result is stored back in memory.</li>
+        </ul>
+
+        <div class="advantages">
+            <h3>Advantages</h3>
+            <ul>
+                <li>Simplifies the design of the CPU.</li>
+                <li>Allows for stored-program computers.</li>
+                <li>Flexible and efficient for general-purpose computing.</li>
+            </ul>
+        </div>
+
+        <div class="disadvantages">
+            <h3>Disadvantages</h3>
+            <ul>
+                <li><strong>Von Neumann Bottleneck:</strong> The single memory path can slow down performance.</li>
+                <li>Limited parallelism due to sequential processing.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Von Neumann Architecture Explanation</p>
+    </footer>
+</body>
+</html>
